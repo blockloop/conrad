@@ -1,0 +1,20 @@
+%link{:href => "/css/twitter.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+#tweets.tweets.plain.hidden-phone
+  %a{:href => "http://www.twitter.com/#{SETTINGS[:twitter][:handle]}"}
+    %h4
+      = SETTINGS[:twitter][:handle]
+  - currtime = Time.new
+  - tweets.each do |tweet|
+    - hours_ago = (Time.new - tweet.created_at) / 60 / 60
+    .tweet.clearfix
+      .tweet-text
+        %a{:href => "//www.twitter.com/#{tweet.user.screen_name}/status/#{tweet.id.to_s}"}= tweet.text
+      .tweet-time.muted
+        - if currtime.day != tweet.created_at.day
+          = tweet.created_at.strftime('%d %b')
+        - elsif hours_ago < 1
+          - mins_ago = (hours_ago * 60).floor
+          = mins_ago < 5 ? "Just Now" : "#{mins_ago} mins ago"
+        - else
+          = hours_ago.floor
+          hours ago

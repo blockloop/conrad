@@ -1,0 +1,8 @@
+%article
+  .page-header.blog-title
+    %h1.plain
+      %a{:href => @article[:link]}= @article[:title]
+    %small.timestamp.muted
+      = @article[:date].strftime("%B %d, %Y")
+  = @article[:content]
+= partial :disqus if @disqus

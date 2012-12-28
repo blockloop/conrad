@@ -1,0 +1,8 @@
+.clearfix.about-the-author
+  %b About The Author
+  %hr
+  = gravatar_for SETTINGS[:gravatar_email], :size => 60, :class => 'avatar img-polaroid pull-left' if (SETTINGS[:gravatar_email])
+  %div
+    %u= SETTINGS[:author_name]
+  .text.muted
+    %small= SETTINGS[:about_text]
