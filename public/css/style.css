@@ -2,18 +2,18 @@
 
 
 body {
-  background: #FFF;
+/*  background: #FFF;*/
   padding-left: 0;
   padding-right: 0;
 }
 
 
-#wrapper {
+/*#wrapper {
   background-image: url(/img/ravens-in-flight-trans.png);
   background-attachment: fixed;
   background-position: top right;
   background-repeat: no-repeat;
-}
+}*/
 
 .content {
   min-height: 450px;
@@ -43,7 +43,7 @@ body {
   display: inline !important;
 }
 
-.plain a {
+/*.plain a {
   color: #333;
   text-decoration: none;
 }
@@ -51,7 +51,7 @@ body {
 .plain a:hover {
   color: #0d0d0d;
   text-decoration: none;
-}
+}*/
 
 article .content {
   font-size: 17px;
@@ -136,5 +136,5 @@ article.timestamp {
 }
 
 #footer a {
-  color: white;
+  color: silver;
 }

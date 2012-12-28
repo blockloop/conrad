@@ -8,6 +8,11 @@ blog_title: Conrad
 # Change this to 'articles' or whatever you wish
 content_path: example_articles
 
+# Responsive bootstrap layout
+# This includes the bootstrap.responsive.css file which is roughly 16k
+# Without this, layouts won't format for mobile devices
+responsive_layout: true
+
 # OPTIONAL: adds comments via disqus to pages
 # disqus_shortname: 
 

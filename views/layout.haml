@@ -2,14 +2,15 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}
-      %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
-        %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-          %title= SETTINGS[:blog_title]
-          / HTML5 shim, for IE6-8 support of HTML elements
-          /[if lt IE 9] %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}
-          %link{:href => "/css/bootstrap.simplex.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-          %link{:href => "/css/bootstrap.responsive.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-          %link{:href => "/css/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= @title || SETTINGS[:blog_title]
+    / HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9] %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}
+    %link{:href => "/css/bootstrap.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    - if SETTINGS[:responsive_layout]
+      %link{:href => "/css/bootstrap.responsive.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/css/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
   %body
     #wrapper
       .navbar.navbar-top
