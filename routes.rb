@@ -1,6 +1,6 @@
 get "/" do
   file_path = File.expand_path SETTINGS[:content_path]
-	articles = Dir["#{file_path}/*.textile"].map { |a| read_article a }
+	articles = Dir["#{file_path}/*.textile"].map { |a| read_article a }.sort { |a,b| b[:date] <=> a[:date] }
   @articles = articles
   @disqus = false
   haml :main
