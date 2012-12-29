@@ -1,140 +1,17 @@
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-
-body {
-/*  background: #FFF;*/
-  padding-left: 0;
-  padding-right: 0;
-}
-
-
-/*#wrapper {
-  background-image: url(/img/ravens-in-flight-trans.png);
-  background-attachment: fixed;
-  background-position: top right;
-  background-repeat: no-repeat;
-}*/
-
-.content {
-  min-height: 450px;
-}
-
-.container {
-  max-width: 960px;
-}
-
-@media (max-width: 767px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-}
-
-.flash-messages {
-  width: 90%;
-}
-
-.flash-messages .alert {
-  width: 225px;
-}
-
-.inline {
-  display: inline !important;
-}
-
-/*.plain a {
-  color: #333;
-  text-decoration: none;
-}
-
-.plain a:hover {
-  color: #0d0d0d;
-  text-decoration: none;
-}*/
-
-article .content {
-  font-size: 17px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-article {
-  margin: 20px 0;
-  border: 0;
-  margin-bottom: 84px;
-}
-
-article:after {
-  display: block;
-  content: '';
-  width: 100px;
-  height: 1px;
-  margin: 20px auto;
-  background-color: #DDD;
-  margin-top: 84px;
-}
-
-article.timestamp {
-  padding-left: 5px;
-}
-
-.about-the-author {
-  padding-top: 10px;
-}
-
-.about-the-author .avatar {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.about-the-author .text {
-  line-height: 1;
-}
-
-.about-the-author legend {
-  font-size: 1.2em;
-  padding: 0;
-  margin: 0;
-}
-
-.about-the-author hr {
-  margin: 0 0 3px 0;
-  padding: 0;
-}
-
-.tweet {
-  margin-bottom: 10px;
-}
-.tweet .tweet-text,
-.tweet .tweet-time  {
-  font-size: 11px;
-}
-
-.tweet .tweet-text {
-  line-height: 1.4em;
-}
-
-.tweet .tweet-text:before {
-  padding-right: 5px;
-  content: url(/img/twitter-3.png);
-  float: left;
-}
-
-.tweet .tweet-time {
-  float: right;
-}
-
-/** Footer **/
-#footer {
-  background: #555;
-  min-height: 100px;
-  margin-top: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 2px solid #333;
-}
-
-#footer a {
-  color: silver;
-}
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.plain a{color:#555555;text-decoration:none;}.plain a:hover{color:#505050;text-decoration:none;}
+article{margin:20px 0;border:0;margin-bottom:84px;}article .content{font-size:17px;margin-top:15px;margin-bottom:15px;}
+article .timestamp{padding-left:5px;}article .timestamp:after{display:block;content:'';width:100px;height:1px;margin:20px auto;background-color:#DDD;margin-top:84px;}
+.content{min-height:450px;}
+.about-the-author{padding-top:10px;}.about-the-author legend{font-size:1.2em;padding:0;margin:0;}
+.about-the-author .text{line-height:1;}
+.about-the-author .avatar{margin-right:10px;margin-bottom:10px;}
+.about-the-author hr{margin:0 0 3px 0;padding:0;}
+body{padding-left:0;padding-right:0;}
+.tweet{margin-bottom:10px;}.tweet .tweet-time{float:right;font-size:11px;}
+.tweet .tweet-text{line-height:1.4em;font-size:11px;}
+.tweet .tweet-text:before{padding-right:5px;content:url(/img/twitter-3.png);float:left;}
+.flash-messages{width:90%;}.flash-messages .alert{width:225px;}
+.inline{display:inline !important;}
+.container{max-width:960px;}
+#footer{color:#999999;background:#555;min-height:100px;margin-top:40px;padding-top:20px;padding-bottom:20px;border-top:2px solid #333;}#footer a{color:#b3b3b3;}

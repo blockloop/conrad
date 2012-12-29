@@ -1,0 +1,125 @@
+// reset
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+.plain a {
+    color: @textColor;
+    text-decoration: none;
+
+    &:hover {
+      color: darken(@textColor,2%);
+      text-decoration: none;
+    }
+
+}
+
+
+article {
+    margin: 20px 0;
+    border: 0;
+    margin-bottom: 84px;
+
+    .content {
+        font-size: 17px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .timestamp {
+        padding-left: 5px;
+
+        &:after {
+            display: block;
+            content: '';
+            width: 100px;
+            height: 1px;
+            margin: 20px auto;
+            background-color: #DDD;
+            margin-top: 84px;
+        }
+    }
+}
+
+.content {
+    min-height: 450px;
+}
+
+.about-the-author {
+    padding-top: 10px;
+
+    legend {
+        font-size: 1.2em;
+        padding: 0;
+        margin: 0;
+    }
+    .text {
+        line-height: 1;
+    }
+    .avatar {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    hr {
+        margin: 0 0 3px 0;
+        padding: 0;
+    }
+}
+
+body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tweet {
+    margin-bottom: 10px;
+
+    .tweet-time {
+        float: right;
+        font-size: 11px;
+    }
+    .tweet-text {
+        line-height: 1.4em;
+        font-size: 11px;
+    }
+    .tweet-text:before {
+        padding-right: 5px;
+        content: url(/img/twitter-3.png);
+        float: left;
+    }
+}
+
+.flash-messages {
+    width: 90%;
+    .alert {
+        width: 225px;
+    }
+}
+
+.inline {
+    display: inline !important;
+}
+
+.container {
+    max-width: 960px;
+}
+
+
+#footer {
+    @footerColor: #999;
+    
+    color: @footerColor;
+    background: #555;
+    min-height: 100px;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 2px solid #333;
+
+    a {
+        color: lighten(@footerColor,10%);
+    }
+}
+

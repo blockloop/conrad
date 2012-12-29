@@ -1,3 +1,6 @@
+Title: Welcome To Conrad!
+Date: 2012-12-27
+
 Conrad is a simple blog framework written with "sinatra":http://sinatrarb.com and Textile.
 
 h3. Features
