@@ -1,0 +1,52 @@
+# TO use regexp use
+#   setting_name: !ruby/regexp /^value$/
+
+# The title of your blog
+blog_title: Conrad Example
+
+# Path to your blog posts/articles
+# Change this to 'articles' or whatever you wish
+content_path: example_articles
+
+# Responsive bootstrap layout
+# This includes the bootstrap.responsive.css file which is roughly 16k
+# Without this, layouts won't format for mobile devices
+responsive_layout: true
+
+# OPTIONAL: adds comments via disqus to pages
+# disqus_shortname: 
+
+## Cache articles indefinitely
+# I do not recommend turning this off because it will
+# be forced to read the files each time the page is requested
+# rather than only the first time
+article_cache: true
+
+# OPTIONAL: Your name
+author_name: Brett Jones
+
+# OPTIONAL: text to be placed in the "about the author" section
+## BEST results have max 75 characters (including spaces)
+## You can use textile here: see redcloth.com for reference
+about_text: |
+  C# Engineer for <a href="http://onetechnologies.net">One Technologies</a>, Jesus Follower, Proud father and husband
+
+# OPTIONAL: will be shown in the about section
+# author_email: 
+
+# OPTIONAL: will use your picture from gravatar.com
+gravatar_email: bjones027@gmail.com
+
+#### Twitter api information ####
+# The api keys are extremely easy to obtain. Go to http://dev.twitter.com and
+# create a new application named whatever your website is and copy the 
+# key information below
+#
+twitter:
+  handle: brettof86
+  tweet_count: 5
+  consumer_key: mwhYqKi8BQNXHQbiyLuKA
+  consumer_secret: 8KYyBY8mkgR9bDGuXjkCdinIYAOACLzUnLOLJK3dHMs
+  access_token: 334059994-HK54OOSLMokKVLD1spwXK04FplnEtM8oQfJndl2U
+  access_token_secret: 3QzcgfKhArk1cAmLTGT0rgGFsIHr4BZzClVcOGvRKE 
+
