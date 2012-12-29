@@ -26,6 +26,7 @@ get '/:year/:month/:day/:title' do
   end
 
   @article = article
+  @title = @article[:title]
   @disqus = SETTINGS[:disqus_shortname]
   haml :article
 end
