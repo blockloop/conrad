@@ -9,6 +9,7 @@ require 'gravatar'
 require 'twitter'
 require 'levenshtein'
 
+config_file =  File.exists?('config.yml') ? 'config.yml' : 'config.example.yml'
 
 helpers do
   include Rack::Utils
@@ -21,7 +22,7 @@ end
 end
 
 CACHE = {}
-SETTINGS = YAML.load_file('config.yml').symbolize_keys
+SETTINGS = YAML.load_file(config_file).symbolize_keys
 
 enable :sessions
 
