@@ -5,6 +5,10 @@
     %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= @title || SETTINGS[:blog_title]
+    
+    - if File.exists?('public/favicon.ico')
+      %link{:rel => 'icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+    
     / HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9] %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}
     %link{:href => "/css/bootstrap.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
