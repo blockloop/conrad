@@ -6,11 +6,10 @@
 }
 
 .plain a {
-    color: @textColor;
+    color: inherit;
     text-decoration: none;
 
     &:hover {
-      color: darken(@textColor,2%);
       text-decoration: none;
     }
 
@@ -108,10 +107,8 @@ body {
 
 
 #footer {
-    @footerColor: #999;
-    
-    color: @footerColor;
-    background: #555;
+    color: @navbarInverseText;
+    background: @navbarInverseBackground;
     min-height: 100px;
     margin-top: 40px;
     padding-top: 20px;
@@ -119,7 +116,10 @@ body {
     border-top: 2px solid #333;
 
     a {
-        color: lighten(@footerColor,10%);
+        color: @navbarInverseLinkColor;
+        &:hover {
+            color: @navbarInverseLinkColorHover;
+        }
     }
 }
 
