@@ -27,9 +27,9 @@ author_name: Your Name Here
 
 # OPTIONAL: text to be placed in the "about the author" section
 ## BEST results have max 75 characters (including spaces)
-## You can use textile here: see redcloth.com for reference
+## You can use html here
 about_text: |
-  You can change this in the config.yml file.
+  Some information about the <b>author</b>
 
 # OPTIONAL: will be shown in the about section
 # author_email: 
@@ -42,7 +42,7 @@ gravatar_email: example@example.com
 # create a new application named whatever your website is and copy the 
 # key information below
 #
-# twitter:
+# twitter:  # DO NOT INCLUDE @
 #   handle: 
 #   tweet_count: 5
 #   consumer_key: 

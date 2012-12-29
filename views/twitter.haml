@@ -2,7 +2,7 @@
 #tweets.tweets.plain.hidden-phone
   %a{:href => "http://www.twitter.com/#{SETTINGS[:twitter][:handle]}"}
     %h4
-      = SETTINGS[:twitter][:handle]
+      = '@' + SETTINGS[:twitter][:handle]
   - currtime = Time.new
   - tweets.each do |tweet|
     - hours_ago = (Time.new - tweet.created_at) / 60 / 60
