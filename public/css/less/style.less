@@ -1,4 +1,13 @@
-// reset
+// DO NOT MAKE MODIFICATIONS HERE
+// use custom-styles.css to make your changes
+// all styles in custom-styles will override everything else
+
+@imagesPath: "/img";
+
+// Override the default values in variables.less
+@iconSpritePath:          "@{imagesPath}/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "@{imagesPath}/glyphicons-halflings-white.png";
+
 * { 
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
@@ -42,7 +51,7 @@ article {
     }
 }
 
-.content {
+.main-content {
     min-height: 450px;
 }
 
@@ -72,20 +81,23 @@ body {
     padding-right: 0;
 }
 
+// 
+// Twitter
+// 
 .tweet {
     margin-bottom: 10px;
 
     .tweet-time {
         float: right;
-        font-size: 11px;
+        font-size: @fontSizeMini;
     }
     .tweet-text {
         line-height: 1.4em;
-        font-size: 11px;
+        font-size: @fontSizeMini;
     }
     .tweet-text:before {
         padding-right: 5px;
-        content: url(/img/twitter-3.png);
+        content: url("@{imagesPath}/twitter-3.png");
         float: left;
     }
 }
@@ -105,7 +117,6 @@ body {
     max-width: 960px;
 }
 
-
 #footer {
     color: @navbarInverseText;
     background: @navbarInverseBackground;
@@ -113,7 +124,7 @@ body {
     margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top: 2px solid #333;
+    border-top: 2px solid darken(@navbarInverseBackground,10%);
 
     a {
         color: @navbarInverseLinkColor;
