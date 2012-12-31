@@ -26,12 +26,10 @@ Writing articles in Conrad is extremely simple. If you're unfamiliar with textil
 
 When you're writing a new article there are only two things required. You must write the title and date at the very top of the page in the following format. You must write *"Title:"* and *"Date:"* on two different lines and they must look exatly like this:
 
-<blockquote>
-Title: Welcome To Conrad!
+bq. Title: Welcome To Conrad!
 Date: 2001-01-01
-
+<br/>
 Start writing here...
-</blockquote>
 
 h3. Themes
 

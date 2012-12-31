@@ -17,7 +17,7 @@ class String
   end
 
   # Some of this is Taken from https://github.com/rsl/stringex
-  def to_permalink
+  def to_url
     s = self.strip
     {
       /\<3/ => '-love-',

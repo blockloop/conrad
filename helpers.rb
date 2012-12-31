@@ -17,10 +17,7 @@ def gravatar_for email, options = {}
 end
 
 def twitter_enabled
-  SETTINGS[:twitter] and 
-  SETTINGS[:twitter][:handle] and SETTINGS[:twitter][:tweet_count] and
-  SETTINGS[:twitter][:consumer_key] and SETTINGS[:twitter][:consumer_secret] and
-  SETTINGS[:twitter][:access_token] and SETTINGS[:twitter][:access_token_secret]
+  SETTINGS[:twitter] and SETTINGS[:twitter].to_a.none? { |k,v| v.nil? }
 end
 
 def tweets
@@ -33,54 +30,39 @@ def tweets
   t
 end
 
-def make_permalink title,date
-  "/#{date.year}/#{date.month}/#{date.day}/#{title.to_permalink}"
+def make_permalink article
+  d = article[:date]
+  "/" + [d.year, d.month, d.day, article[:title].to_url].join('/').strip
 end
 
-def find_article title,date
-  all = Dir["#{SETTINGS[:content_path]}/*.textile"].map { |a| 
-    scan_article(File.expand_path a)
-  }.find_all { |a| a[:date] == date }
-
-  return read_article all.first[:file_path] if all.one? and (all.first[:title].distance(title) < 0.3)
-
-  by_title = all.map{ |a| 
-    {:article => a, :distance => a[:title].distance(title)} 
-  }.find_all{|a| a[:distance] < 0.3}
-  
-  return read_article by_title.first[:file_path] if by_title.one? 
-  
-  best_fit = by_title.sort{ |x,y| 
-    x[:distance] <=> y[:distance]
-  }.first[:article][:file_path]
-  
-  read_article best_fit
-end
-
-def scan_article file_path
-  lines = ["file_path: '#{file_path}'"]
-  i = 0
-  File.readlines(file_path).each do |line|
-    break if i == 2
-    lines.push line
-    i+=1
-  end 
-  YAML.load(lines.join("\n")).symbolize_keys
-end
-
-def read_article file_path
-  file_lines = File.readlines(file_path)
-  header = file_lines[0..1]
-  timestamp = header.last.split(':').last.strip
-  date = DateTime.parse(timestamp)
-  title = header.first.split(':').last.strip
-  raw = file_lines[2..-1].join().strip
-
-  article = {}
-  article[:content] = RedCloth.new(raw).to_html
-  article[:title] = title
-  article[:date] = DateTime.new(date.year,date.month,date.day)
-  article[:link] = make_permalink title,article[:date]
+def find_article permalink
+  article = CACHE[:articles].find { |a| a[:permalink] == permalink.strip }
+  nil unless article
+  article[:content] = load_content article[:file_path] unless article[:content]
   article
 end
+
+def skim_articles
+  Dir["#{SETTINGS[:content_path]}/*.textile"].map { |f|
+    path = File.expand_path f
+    lines = ["file_path: '#{path}'"]
+
+    File.readlines(path).each do |line|
+      break if line.strip.empty? # stop after header
+      lines.push line
+    end 
+    
+    article = YAML.load(lines.join("\n")).symbolize_keys
+    article[:permalink] = make_permalink article
+    article
+  }.
+  sort { |a,b| b[:date] <=> a[:date] }
+end
+
+def load_content file_path
+  raw = File.readlines(file_path)[HEADER_LENGTH..-1].join
+  RedCloth.new(raw).to_html
+end
+
+
 

@@ -22,6 +22,7 @@ end
 end
 
 CACHE = {}
+HEADER_LENGTH = 2
 SETTINGS = YAML.load_file(config_file).symbolize_keys
 
 enable :sessions
@@ -40,7 +41,6 @@ configure :development do
 end
 
 if twitter_enabled
-  p "Twitter is enabled"
   Twitter.configure do |config|
     config.consumer_key = SETTINGS[:twitter][:consumer_key]
     config.consumer_secret = SETTINGS[:twitter][:consumer_secret]
@@ -50,4 +50,4 @@ if twitter_enabled
 end
 
 require_relative 'routes.rb'
-
+CACHE[:articles] = skim_articles
