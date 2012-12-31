@@ -2,7 +2,7 @@
 #   setting_name: !ruby/regexp /^value$/
 
 # The title of your blog
-blog_title: Conrad Example
+blog_title: Conrad
 
 # Path to your blog posts/articles
 # Change this to 'articles' or whatever you wish
@@ -23,30 +23,30 @@ responsive_layout: true
 article_cache: true
 
 # OPTIONAL: Your name
-author_name: Brett Jones
+author_name: Your Name Here
 
 # OPTIONAL: text to be placed in the "about the author" section
 ## BEST results have max 75 characters (including spaces)
-## You can use textile here: see redcloth.com for reference
+## You can use html here
 about_text: |
-  C# Engineer for <a href="http://onetechnologies.net">One Technologies</a>, Jesus Follower, Proud father and husband
+  Some information about the <b>author</b>
 
 # OPTIONAL: will be shown in the about section
 # author_email: 
 
 # OPTIONAL: will use your picture from gravatar.com
-gravatar_email: bjones027@gmail.com
+gravatar_email: example@example.com
 
 #### Twitter api information ####
 # The api keys are extremely easy to obtain. Go to http://dev.twitter.com and
 # create a new application named whatever your website is and copy the 
 # key information below
 #
-twitter:
-  handle: brettof86
-  tweet_count: 5
-  consumer_key: mwhYqKi8BQNXHQbiyLuKA
-  consumer_secret: 8KYyBY8mkgR9bDGuXjkCdinIYAOACLzUnLOLJK3dHMs
-  access_token: 334059994-HK54OOSLMokKVLD1spwXK04FplnEtM8oQfJndl2U
-  access_token_secret: 3QzcgfKhArk1cAmLTGT0rgGFsIHr4BZzClVcOGvRKE 
+# twitter:  # DO NOT INCLUDE @
+#   handle: 
+#   tweet_count: 5
+#   consumer_key: 
+#   consumer_secret: 
+#   access_token: 
+#   access_token_secret: 
 
