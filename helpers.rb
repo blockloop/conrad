@@ -60,8 +60,9 @@ def skim_articles
 end
 
 def load_content file_path
-  raw = File.readlines(file_path)[HEADER_LENGTH..-1].join
-  RedCloth.new(raw).to_html
+  raw = File.readlines(file_path)[CONFIG[:header_length]..-1].join if textile
+  RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
+  RDiscount.new(raw).to_html
 end
 
 

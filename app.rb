@@ -8,6 +8,7 @@ require 'titleize'
 require 'gravatar'
 require 'twitter'
 require 'levenshtein'
+require 'rdiscount'
 
 config_file =  File.exists?('config.yml') ? 'config.yml' : 'config.example.yml'
 
@@ -22,7 +23,7 @@ end
 end
 
 CACHE = {}
-HEADER_LENGTH = 2
+CONFIG = YAML.load_file('app.settings.yml').symbolize_keys
 SETTINGS = YAML.load_file(config_file).symbolize_keys
 
 enable :sessions
