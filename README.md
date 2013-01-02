@@ -42,10 +42,12 @@ eg.
 
 ### How To Install
 
-> git clone git@github.com:brettof86/conrad.git  
-> cd conrad  
-> bundle install  
-> ruby app.rb
+```bash
+$ git clone git@github.com:brettof86/conrad.git  
+$ cd conrad  
+$ bundle install  
+$ ruby app.rb
+```
 
 This will run with default settings. Once you’re ready, edit config.yml to add your own custom details and start the application again.
 
