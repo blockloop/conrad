@@ -43,7 +43,7 @@ def find_article permalink
 end
 
 def skim_articles
-  Dir["#{SETTINGS[:content_path]}/*.textile"].map { |f|
+  Dir["#{SETTINGS[:content_path]}/*"].map { |f|
     path = File.expand_path f
     lines = ["file_path: '#{path}'"]
 
@@ -61,8 +61,8 @@ end
 
 def load_content file_path
   raw = File.readlines(file_path)[CONFIG[:header_length]..-1].join
-  RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
-  RDiscount.new(raw).to_html
+  return RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
+  return RDiscount.new(raw).to_html
 end
 
 
