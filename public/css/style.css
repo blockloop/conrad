@@ -16,4 +16,4 @@ body{padding-left:0;padding-right:0;}
 .inline{display:inline !important;}
 .container{max-width:960px;}
 #footer{color:#555555;background:#dddddd;min-height:100px;margin-top:40px;padding-top:20px;padding-bottom:20px;border-top:2px solid #c4c4c4;}#footer a{color:#333333;}#footer a:hover{color:#333333;}
-@media (max-width:767px){.container{padding-left:5px;padding-right:5px;}}
+@media (max-width:767px){.container{padding-left:8px;padding-right:8px;}}
