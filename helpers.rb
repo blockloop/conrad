@@ -31,8 +31,10 @@ def tweets
 end
 
 def make_permalink article
-  d = article[:date]
-  "/" + [d.year, d.month, d.day, article[:title].to_url].join('/').strip
+  year = article[:date].year.to_s
+  month = article[:date].month.two_digit
+  day = article[:date].day.two_digit
+  "/" + [year,month,day,article[:title].to_url].join('/').strip
 end
 
 def find_article permalink
