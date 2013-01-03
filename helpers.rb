@@ -4,7 +4,7 @@
 # end
 
 def partial page, variables={} 
-	haml page, {layout:false}, variables
+	haml :"partials/#{page.to_s}", variables
 end
 
 def gravatar_for email, options = {}
@@ -63,8 +63,8 @@ end
 
 def load_content file_path
   raw = File.readlines(file_path)[CONFIG[:header_length]..-1].join
-  return RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
-  return RDiscount.new(raw).to_html
+  Markdown = File.extname(file_path) == '.textile' ? RedCloth : RDiscount
+  Markdown.new(raw).to_html
 end
 
 
