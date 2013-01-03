@@ -9,7 +9,7 @@ end
 
 get '/:year/:month/:day/:title' do
   article = find_article request.path_info
-  raise Sinatra::NotFound unless article
+  error 404 unless article
   @article = article
   @title = @article[:title]
   @disqus = SETTINGS[:disqus_shortname]

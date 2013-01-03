@@ -39,8 +39,8 @@ end
 
 def find_article permalink
   article = CACHE[:articles].find { |a| a[:permalink] == permalink.strip }
-  nil unless article
-  article[:content] = load_content article[:file_path] unless article[:content]
+  return nil unless article
+  article[:content] = load_content article[:file_path] unless article[:content] and not development?
   article
 end
 
@@ -67,6 +67,4 @@ def load_content file_path
   return RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
   return RDiscount.new(raw).to_html
 end
-
-
 
