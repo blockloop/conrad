@@ -38,40 +38,34 @@ When you’re writing a new article there are only two things required. You must
 
 Themes from [bootswatch][] are easily installed with a single line of code
 
-```bash
-rake theme:install [theme name]
-```
+    rake theme:install [theme name]
 
 eg. 
 
-```bash
-rake theme:install journal
-```
+    rake theme:install journal
 
 ### How To Use
 
-```bash
-$ git clone git@github.com:brettof86/conrad.git  
-$ cd conrad  
-$ bundle install  
-$ ruby app.rb
-```
-Navigate to localhost:4567
+    $ git clone git@github.com:brettof86/conrad.git  
+    $ cd conrad  
+    $ bundle install  
+    $ ruby app.rb
+
+Then Navigate to [http://localhost:4567](http://localhost:4567)
 
 This will run with default settings. To customize, create rename config.example.yml to config.yml and add your own custom details and (re)start the application.
 
 
 ### Free web hosting via Heroku
 
-- [Setup your Heroku account](https://devcenter.heroku.com/articles/quickstart)
-- clone and configure (see *How To Use* above)
+[Setup your Heroku account](https://devcenter.heroku.com/articles/quickstart)
+clone and configure (see *How To Use* above)
 
-```bash
-$ cd conrad  
-$ heroku create blogname  
-$ git push heroku master
-```
+    $ cd conrad  
+    $ heroku create blogname  
+    $ git push heroku master
   
+
   [sinatra]: http://sinatrarb.com
   [textile]: http://redcloth.org
   [markdown]: http://daringfireball.net/projects/markdown/syntax
