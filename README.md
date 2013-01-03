@@ -60,7 +60,7 @@ This will run with default settings. To customize, create rename config.example.
 
 ### Free web hosting via Heroku
 
-[Setup your Heroku account][https://devcenter.heroku.com/articles/quickstart]
+[Setup your Heroku account](https://devcenter.heroku.com/articles/quickstart)
 clone and configure (see *How To Use* above)
 
 ```bash
