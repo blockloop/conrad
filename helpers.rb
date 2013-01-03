@@ -4,7 +4,7 @@
 # end
 
 def partial page, variables={} 
-	haml :"partials/#{page.to_s}", variables
+	haml :"partials/#{File.basename page.to_s}", variables
 end
 
 def gravatar_for email, options = {}
@@ -55,6 +55,7 @@ def skim_articles
     end 
     
     article = YAML.load(lines.join("\n")).symbolize_keys
+    article.each { |k,v| raise LoadError, "Missing #{k.to_s} for #{File.basename article[:file_path]}" unless v }
     article[:permalink] = make_permalink article
     article
   }.
@@ -63,8 +64,8 @@ end
 
 def load_content file_path
   raw = File.readlines(file_path)[CONFIG[:header_length]..-1].join
-  Markdown = File.extname(file_path) == '.textile' ? RedCloth : RDiscount
-  Markdown.new(raw).to_html
+  return RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
+  return RDiscount.new(raw).to_html
 end
 
 

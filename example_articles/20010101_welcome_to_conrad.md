@@ -1,3 +1,6 @@
+title: Welcome To Conrad!
+date: 2012-12-20
+
 Conrad is a simple blog framework written with [Sinatra][sinatra] and utilizes user friendly libraries such as [Textile][textile] and [Markdown][markdown]. 
 
 Live Example: [http://conrad.herokuapp.com](http://conrad.herokuapp.com)
