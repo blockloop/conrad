@@ -1,11 +1,14 @@
-Conrad is a simple blog framework written with [Sinatra][sinatra] and utilizes user friendly libraries such as [Textile][textile] and [Markdown][markdown]
+Conrad is a simple blog framework written with [Sinatra][sinatra] and utilizes user friendly libraries such as [Textile][textile] and [Markdown][markdown]. 
+
+Live Example: [http://conrad.herokuapp.com](http://conrad.herokuapp.com)
+
 
 ### Features
 
--   ~30Kb in size (not including bootstrap and jquery libs)
+-   ~30Kb in size (not including bootstrap and jquery)
 -   Text file based blogs written with [textile] and [markdown]
--   Installable themes from [bootswatch][]! (see themes below)
--   Responsive design thanks to Bootstrap
+-   Installable themes from [bootswatch][]! (see *Themes* section below)
+-   Responsive design thanks to Bootstrap (optional)
     -   Looks great on all devices!
 -   Twitter feed sidebar (optional)
 -   Disquis integration (optional)
@@ -60,8 +63,8 @@ This will run with default settings. To customize, create rename config.example.
 
 ### Free web hosting via Heroku
 
-[Setup your Heroku account][https://devcenter.heroku.com/articles/quickstart]
-clone and configure (see *How To Use* above)
+- [Setup your Heroku account](https://devcenter.heroku.com/articles/quickstart)
+- clone and configure (see *How To Use* above)
 
 ```bash
 $ cd conrad  
