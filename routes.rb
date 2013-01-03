@@ -1,7 +1,6 @@
 get "/" do
   file_path = File.expand_path SETTINGS[:content_path]
   articles = CACHE[:articles][0..4]
-  articles.each { |a| a[:content] = (load_content a[:file_path]) unless a[:content] }
   @articles = articles
   @disqus = false
   haml :main

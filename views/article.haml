@@ -1,8 +1,8 @@
 %article
   .page-header.blog-title
     %h1.plain
-      %a{:href => @article[:permalink]}= @article[:title]
+      %a{:href => @article.permalink}= @article.title
     %small.timestamp.muted
-      = @article[:date].strftime("%B %d, %Y")
-  = @article[:content]
+      = @article.date.strftime("%B %d, %Y")
+  = @article.body
 = partial :disqus if @disqus

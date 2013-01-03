@@ -11,7 +11,6 @@ GEM
     haml (3.1.7)
     less (2.2.2)
       commonjs (~> 0.2.6)
-    levenshtein (0.2.2)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     rack (1.4.1)

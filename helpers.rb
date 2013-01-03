@@ -17,10 +17,16 @@ def gravatar_for email, options = {}
 end
 
 def twitter_enabled
-  SETTINGS[:twitter] and SETTINGS[:twitter].to_a.none? { |k,v| v.nil? }
+  [SETTINGS[:twitter][:handle],
+    SETTINGS[:twitter][:tweet_count],
+    SETTINGS[:twitter][:consumer_key],
+    SETTINGS[:twitter][:consumer_secret],
+    SETTINGS[:twitter][:access_token],
+    SETTINGS[:twitter][:access_token_secret]].all? rescue false
 end
 
 def tweets
+  return nil unless twitter_enabled
   return CACHE[:tweets] if CACHE[:tweets] and CACHE[:tweets_expire] > Time.now
   handle = SETTINGS[:twitter][:handle]
   count = SETTINGS[:twitter][:tweet_count]
@@ -30,41 +36,13 @@ def tweets
   t
 end
 
-def make_permalink article
-  year = article[:date].year.to_s
-  month = article[:date].month.two_digit
-  day = article[:date].day.two_digit
-  "/" + [year,month,day,article[:title].to_url].join('/').strip
-end
-
 def find_article permalink
-  article = CACHE[:articles].find { |a| a[:permalink] == permalink.strip }
-  return nil unless article
-  article[:content] = load_content article[:file_path] unless article[:content] and not development?
-  article
+  CACHE[:articles].find { |a| a[:permalink] == permalink.strip }
 end
 
 def skim_articles
   Dir["#{SETTINGS[:content_path]}/*"].map { |f|
-    path = File.expand_path f
-    lines = ["file_path: '#{path}'"]
-
-    File.readlines(path).each do |line|
-      break if line.strip.empty? # stop after header
-      lines.push line
-    end 
-    
-    article = YAML.load(lines.join("\n")).symbolize_keys
-    article.each { |k,v| raise LoadError, "Missing #{k.to_s} for #{File.basename article[:file_path]}" unless v }
-    article[:permalink] = make_permalink article
-    article
+    Article.new f
   }.
   sort { |a,b| b[:date] <=> a[:date] }
 end
-
-def load_content file_path
-  raw = File.readlines(file_path)[CONFIG[:header_length]..-1].join
-  return RedCloth.new(raw).to_html if File.extname(file_path) == '.textile'
-  return RDiscount.new(raw).to_html
-end
-

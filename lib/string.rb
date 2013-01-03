@@ -8,12 +8,7 @@ class String
   end
 
   def methodize
-    gsub(/\//, '__').
-    gsub(/::/, '__').
-    gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-    gsub(/([a-z\d])([A-Z])/,'\1_\2').
-    tr("-", "_").
-    downcase
+    scan(/[a-z]+/i).join("_").downcase rescue ''
   end
 
   # Some of this is Taken from https://github.com/rsl/stringex

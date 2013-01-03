@@ -7,7 +7,6 @@ require 'date'
 require 'titleize'
 require 'gravatar'
 require 'twitter'
-require 'levenshtein'
 require 'rdiscount'
 
 config_file =  File.exists?('config.yml') ? 'config.yml' : 'config.example.yml'
