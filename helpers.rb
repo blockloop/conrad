@@ -3,8 +3,8 @@
 # 	call(env.merge("PATH_INFO" => uri).merge(env_modifications)).last.join
 # end
 
-def partial page, variables={} 
-	haml :"partials/#{File.basename page.to_s}", variables
+def partial page
+	haml :"partials/#{File.basename page.to_s}"
 end
 
 def gravatar_for email, options = {}
@@ -31,18 +31,20 @@ def tweets
   handle = SETTINGS[:twitter][:handle]
   count = SETTINGS[:twitter][:tweet_count]
   t = Twitter.user_timeline(handle, :count => count)
-  CACHE[:tweets] = t
   CACHE[:tweets_expire] = Time.now + (10*60) # 10 minutes
-  t
+  CACHE[:tweets] ||= t
 end
 
 def find_article permalink
   CACHE[:articles].find { |a| a[:permalink] == permalink.strip }
 end
 
+def get_articles count=-1,offset=0
+  last = offset + count
+  CACHE[:articles][offset..last] || []
+end
+
 def skim_articles
-  Dir["#{SETTINGS[:content_path]}/*"].map { |f|
-    Article.new f
-  }.
-  sort { |a,b| b[:date] <=> a[:date] }
+  Dir["#{SETTINGS[:content_path]}/*"].map{ |f| Article.new f }.
+  sort{ |a,b| b[:date] <=> a[:date] }
 end

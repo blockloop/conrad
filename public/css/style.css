@@ -3,7 +3,7 @@
 article{margin:20px 0;border:0;margin-bottom:84px;}article .content{font-size:17px;margin-top:15px;margin-bottom:15px;}
 article .timestamp{bottom:7px;position:relative;}
 article:after{display:block;content:'';width:100px;height:1px;margin:20px auto;background-color:#DDD;margin-top:84px;}
-.main-content{min-height:450px;}
+.main-content{min-height:450px !important;}
 .about-the-author{padding-top:10px;}.about-the-author legend{font-size:1.2em;padding:0;margin:0;}
 .about-the-author .text{line-height:1;}
 .about-the-author .avatar{margin-right:10px;margin-bottom:10px;}
