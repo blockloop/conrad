@@ -4,7 +4,6 @@ require 'haml'
 require 'yaml'
 require 'RedCloth'
 require 'date'
-require 'titleize'
 require 'gravatar'
 require 'twitter'
 require 'rdiscount'
@@ -30,14 +29,6 @@ enable :sessions
 configure :production do
   set :haml, { :ugly=>true }
   set :clean_trace, true
-  # set :css_files, :blob
-  # set :js_files,  :blob
-  # MinifyResources.minify_all
-end
-
-configure :development do
-  # set :css_files, MinifyResources::CSS_FILES
-  # set :js_files,  MinifyResources::JS_FILES
 end
 
 if twitter_enabled

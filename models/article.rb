@@ -4,17 +4,15 @@ class Article < Unhashable
     raise ArgumentError, "filepath doesn't exist" unless File.exists? filepath
     self[:file_path] = File.expand_path filepath
     load
-    self[:permalink] = make_permalink
-    super
+    unhash!
   end
 
   # lazy loaded
   def body
-    return self[:body] if self[:body] and not development?
+    return @body if @body and not development?
     raw = File.readlines(self[:file_path])[CONFIG[:header_length]..-1].join
-    self[:body] = RedCloth.new(raw).to_html if File.extname(self[:file_path]) == '.textile'
-    self[:body] ||= RDiscount.new(raw).to_html
-    self[:body]
+    @body = RedCloth.new(raw).to_html if File.extname(self[:file_path]) == '.textile'
+    @body ||= RDiscount.new(raw).to_html
   end
 
   private
@@ -27,6 +25,7 @@ class Article < Unhashable
       
       merge! YAML.load(lines.join("\n")).symbolize_keys
       each { |k,v| raise LoadError, "Missing #{k.to_s} for #{File.basename article[:file_path]}" unless v }
+      self[:permalink] = make_permalink
     end
 
     def make_permalink
