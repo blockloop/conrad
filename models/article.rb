@@ -2,10 +2,10 @@ class Article < Unhashable
 
   def initialize filepath=""
     raise ArgumentError, "filepath doesn't exist" unless File.exists? filepath
-    self[:file_path] = filepath
+    self[:file_path] = File.expand_path filepath
     load
     self[:permalink] = make_permalink
-    unhash!
+    super
   end
 
   # lazy loaded
@@ -19,10 +19,8 @@ class Article < Unhashable
 
   private
     def load
-      path = File.expand_path self[:file_path]
-      lines = ["file_path: '#{path}'"]
-
-      File.readlines(path).each do |line|
+      lines=[]
+      File.readlines(self[:file_path]).each do |line|
         break if line.strip.empty? # stop after header
         lines.push line
       end 
