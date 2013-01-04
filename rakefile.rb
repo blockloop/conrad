@@ -1,6 +1,5 @@
 require 'rake'
 require 'httparty'
-require 'less'
 require 'uri'
 
 namespace "theme" do
@@ -8,17 +7,8 @@ namespace "theme" do
   desc "Install a theme"
   task :install do
     exit_with_message "Please provide a theme name to install" if ARGV.one?
-    theme = ARGV.last.downcase rescue nil
+    theme = ARGV.last.downcase
     install_bootstrap theme
-    download_variables theme
-    compile_styles
-    exit_with_message "Theme installed successfully => #{theme}"
-  end
-
-  desc "Compile less"
-  task :compile do
-    compile_styles
-    exit_with_message "Successfully compiled"
   end
 
 end
@@ -32,20 +22,6 @@ def install_bootstrap theme
   source = "https://raw.github.com/thomaspark/bootswatch/gh-pages/#{theme}/bootstrap.min.css"
   dest = 'public/css/bootstrap.min.css'
   install_css source,dest
-end
-
-def download_variables theme
-  source = "https://raw.github.com/thomaspark/bootswatch/gh-pages/#{theme}/variables.less"
-  dest = 'public/css/less/variables.less'
-  install_css source,dest
-end
-
-def compile_styles
-  less = IO.read 'public/css/less/variables.less'
-  less += IO.read 'public/css/less/style.less'
-  tree = Less::Parser.new.parse(less)
-  style_css = tree.to_css(:compress => true)
-  IO.write('public/css/style.css', style_css)
 end
 
 def install_css source,dest
@@ -69,9 +45,3 @@ def url? url
 rescue URI::InvalidURIError
   false
 end
-
-
-
-
-
-
