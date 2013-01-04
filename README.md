@@ -31,7 +31,7 @@ When you’re writing a new article there are only two things required. You must
 
 > Title: Welcome To Conrad!  
 > Date: 2001-01-01  
-> 
+> <br/>
 > Start writing here…
 
 ### Themes
