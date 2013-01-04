@@ -7,9 +7,10 @@ end
 
 get '/archive/?:page?' do
   @page = params[:page].to_i rescue 1
-  offset = @page > 1 ? page*10 : 0
-  @articles = get_articles 10,offset
-  @pages = (get_articles.count / 10).ceil
+  count = 10
+  offset = @page > 1 ? page*count : 0
+  @articles = get_articles count,offset
+  @pages = (get_articles.count / count).ceil
   @title = 'Archive'
   haml :archive
 end

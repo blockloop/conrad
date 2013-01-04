@@ -42,8 +42,17 @@
             = yield
         
       #footer
-        .container.muted
-          .pull-right.clearfix
+        .container
+          .pull-left.archives
+            %span.title 
+              Latest Articles
+            %ul
+              - get_articles(5).each do |article|
+                %li
+                  %a{:href => "#{article.permalink}"}= article.title
+                
+
+          .pull-right.clearfix.muted
             &copy; Brett Jones #{Time.now.strftime("%Y")}
             %b |
             powered by
